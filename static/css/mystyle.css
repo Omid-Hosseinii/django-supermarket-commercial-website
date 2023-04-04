@@ -1,0 +1,7 @@
+/* rtl slider main page */
+
+.productSlider,.slideshow,.main_collection_slider{
+    direction: ltr !important;
+}
+
+/* Endrtl slider main page */

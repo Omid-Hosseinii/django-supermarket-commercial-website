@@ -1,0 +1,92 @@
+/* Defined font face */
+
+@font-face {
+    font-family: 'IRANYekanBold';
+    /* it should be url but we use local server so we used local for address ( when website deployed on server we should use url ) */
+    src: local("{% static '/fonts/fonts/IRANYEKAN/IRANYekanBold.ttf' %}") format('truetype');
+    font-weight: bold !important;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IRANYekanMedium';
+    src: local("{% static '/fonts/fonts/IRANYEKAN/IRANYekanMedium.ttf' %}")format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IRANYekanExtraBold';
+    src: local("{% static '/fonts/fonts/IRANYEKAN/IRANYekanExtraBold.ttf' %}")format('truetype');
+    font-weight: Bolder;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IRANYekanRegular';
+    src: local("{% static '/fonts/fonts/IRANYEKAN/IRANYekanRegular.ttf' %}")format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IRANYekanThin';
+    src: local("{% static '/fonts/fonts/IRANYEKAN/IRANYekanThin.ttf' %}")format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IRANYekanLight';
+    src: local("{% static '/fonts/fonts/IRANYEKAN/IRANYekanLight.ttf' %}")format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'nazanin';
+    src: local("{% static '/fonts/fonts/Other/nazanin.ttf' %}")format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'VazirBold';
+    src: local("{% static '/fonts/fonts/vazir-font/Vazir-Bold.ttf' %}")format('truetype');
+    font-weight: bolder;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'VazirRegular';
+    src: local("{% static '/fonts/fonts/vazir-font/Vazir-Regular.ttf' %}")format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ____________________________________________________________________________________________ */
+
+
+
+/* -------------------------------------------------------------------------------- */
+/* defined font for ech tag */
+/* -------------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------------- */
+/* header font */
+
+.topheader_font{
+    font-family: 'IRANYekanRegular';
+    font-size:21px;
+    color: #000000;
+}
+
+.topheader_user_font > li > a{
+    
+    font-family: 'IRANYekanRegular';
+    font-size:15px;
+    color: #000000;
+}
+
+/* navbar titile */
+.navbar_font > ul > li > a > span,.navbar_font > ul > li > a > b{
+    font-family: 'VazirRegular';
+    font-size:20px;
+  
+
+}
+
+
+/* -------------------------------------------------------------------------------- */

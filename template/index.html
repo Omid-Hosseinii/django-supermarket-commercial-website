@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+    <meta name="description" content="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+	<link rel="icon" type="image/png" href="{{media_url}}myImages/favicon/shop-favicon.png">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+    <!-- Bootstap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-rtl.min.css' %}">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- font style -->
+    <link rel="stylesheet" href="{% static 'css/fonts_face.css' %}">
+    
+    <!-- title block -->
+    <title>
+        {% block title %}
+            
+        {% endblock title %}
+    </title>
+
+</head>
+ 
+<!-- pre-loader -->
+<div id="pre-loader">
+    <img src="{{media_url}}images/loader.gif" alt="Loading..." />
+</div>
+
+<body class="template-index belle template-index-belle rtl">
+    <div class="pageWrapper">
+
+        <!-- header section -->
+        {% include 'partials/header.html' %}
+        
+
+
+        <!-- body section -->
+        {% block content %}
+        
+        {% endblock content %}
+        <!-- End body section -->
+
+
+        <!-- foooter section -->
+        {% include 'partials/footer.html' %}
+
+
+        <!-- scripts -->
+        <!-- Jquery -->
+        <script src="{% static 'js/vendor/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'js/vendor/modernizr-3.6.0.min.js' %}"></script>
+        <script src="{% static 'js/vendor/jquery.cookie.js' %}"></script>
+        <script src="{% static 'js/vendor/wow.min.js' %}"></script>
+        <!-- Including Javascript -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/lazysizes.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        <!--For Newsletter Popup-->
+        <script src="{% static 'js/newsletter_popup.js' %}"></script>
+        <!-- End scripts -->
+
+    </div>
+</body>
+</html>
