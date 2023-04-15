@@ -1,0 +1,40 @@
+<div class="latest-blog section pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="section-header text-center article_home_style">
+                      <h2 class="h2">آخرین مقالات</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            
+            {% for article in articles %}
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="wrap-blog">
+                        <a href="{% url 'article:blog_detail' article.slug %}" class="article__grid-image">
+                            <img src="{{media_url}}{{article.main_image_name}}" alt="It's all about how you wear" title="It's all about how you wear" class="blur-up lazyloaded"/>
+                        </a>
+                        <div class="article__grid-meta article__grid-meta--has-image">
+                            <div class="wrap-blog-inner">
+                                <h2 class="h3 article__title">
+                                    <a href="{% url 'article:blog_detail' article.slug %}">{{article.title}}</a>
+                                </h2>
+                                <span class="article__date mb-2 mt-2">{{article.get_jalali_date}}</span>
+                                <div class="rte article__grid-excerpt">
+                                    {{article.short_text}}
+                                </div>
+                                <ul class="list--inline article__meta-buttons">
+                                    <li><a href="{% url 'article:blog_detail' article.slug %}">بیشتر بخوانید</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>

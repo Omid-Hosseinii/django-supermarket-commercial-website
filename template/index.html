@@ -21,8 +21,11 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    
     <!-- font style -->
     <link rel="stylesheet" href="{% static 'css/fonts_face.css' %}">
+
     
     <!-- title block -->
     <title>
@@ -44,13 +47,14 @@
         <!-- header section -->
         {% include 'partials/header.html' %}
         
+ 
+            <!-- body section -->
+            {% block content %}
+            
+            {% endblock content %}
+            <!-- End body section -->
+  
 
-
-        <!-- body section -->
-        {% block content %}
-        
-        {% endblock content %}
-        <!-- End body section -->
 
 
         <!-- foooter section -->
@@ -69,6 +73,8 @@
         <script src="{% static 'js/popper.min.js' %}"></script>
         <script src="{% static 'js/lazysizes.js' %}"></script>
         <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/myscripts.js' %}"></script>
+
         <!--For Newsletter Popup-->
         <script src="{% static 'js/newsletter_popup.js' %}"></script>
         <!-- End scripts -->

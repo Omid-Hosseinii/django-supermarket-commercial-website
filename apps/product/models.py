@@ -4,12 +4,14 @@ from django.utils import timezone
 from django.urls import reverse
 from datetime import datetime
 from django.db.models import Sum,Avg
-# from middlewares.middlewares import RequesMiddleware
+from ckeditor_uploader.fields import RichTextUploadingField
+from ckeditor.fields import RichTextField
+from middlewares.middlewares import RequesMiddleware
 #--------------------------------------------------------------------------------------------------------------------------------
 
 class Brand(models.Model):
     brand_title = models.CharField(max_length=100,verbose_name='برند کالا')
-    file_upload=UploadFile('images','brand')
+    file_upload=UploadFile('images2','brand')
     image_name=models.ImageField(upload_to=file_upload.upload_to,verbose_name='تصویر گروه کالا')
     slug=models.SlugField(max_length=200,verbose_name='عنوان لاتین',null=True)
 
@@ -24,7 +26,7 @@ class Brand(models.Model):
 
 class ProductGroup(models.Model):
     group_title = models.CharField(max_length=100,verbose_name='عنوان گروه کالا')
-    file_upload=UploadFile('images','product_group')
+    file_upload=UploadFile('images2','product_group')
     image_name=models.ImageField(upload_to=file_upload.upload_to,verbose_name='تصویر گروه کالا')
     description=models.TextField(blank=True,null=True,verbose_name='توضحیات گروه کالا')
     is_active=models.BooleanField(default=False,verbose_name='وضعیت فعال/غیرفعال')
@@ -67,7 +69,7 @@ class Product(models.Model):
     short_text= models.TextField(default="",verbose_name='خلاصه توضیحات',null=True,blank=True)
     
     description=RichTextUploadingField(blank=True,null=True,verbose_name='توضحیات کالا')
-    file_upload=UploadFile('images','products')
+    file_upload=UploadFile('images2','products')
     image_name=models.ImageField(upload_to=file_upload.upload_to,verbose_name='تصویر کالا')  
     price=models.PositiveIntegerField(default=0,verbose_name='قیمت')
     product_group=models.ManyToManyField(ProductGroup,verbose_name='گروه کالا',related_name='products_of_group')
@@ -141,8 +143,6 @@ class Product(models.Model):
         return score    
     #_______________________________________________________________________________________________
     
-    
-    
     def get_user_favorites(self):
         request=RequesMiddleware(get_response=None)
         request=request.thread_local.current_request
@@ -151,17 +151,55 @@ class Product(models.Model):
         return flag
     #_______________________________________________________________________________________________
     
-    
-    
     def GetMainProductGroups(self):
         return self.product_group.all()[0].id
 
 ###============================================================================================================================================
 
 
+#------------------------------------------------------------------------------
 
+class FeatureValue(models.Model):
+    value_title = models.CharField(max_length=100,verbose_name='عنوان مقدار')
+    feature=models.ForeignKey(Feature,on_delete=models.CASCADE,verbose_name='ویژگی',null=True,blank=True,related_name='feature_value')
 
+    def __str__(self):
+        return self.value_title
+    
+    
+    class Meta:
+        verbose_name ='مقدار ویژگی'
+        verbose_name_plural ='مقادیر ویژگی ها'
+        db_table ='t_feature_value'
 
+#------------------------------------------------------------------------------
+### 3rd table for feature and product
+class ProductFeature(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE,verbose_name='کالا',related_name='product_features')
+    feature=models.ForeignKey(Feature,on_delete=models.CASCADE,verbose_name='ویژگی')
+    value=models.CharField(max_length=200,verbose_name='مقدار ویژگی کالا')
+    ### for able filters on product 
+    filter_value=models.ForeignKey(FeatureValue,on_delete=models.CASCADE,null=True,blank=True,related_name='filter_feature_value',verbose_name='نام فیلتر ویژگی')
 
+    def __str__(self):
+        return f'{self.product} - {self.feature} : {self.value}'
 
+    class Meta:
+        verbose_name ='ویژگی محصول'
+        verbose_name_plural ='ویژگی محصولات'
+        db_table ='t_productfeature'
 
+#------------------------------------------------------------------------------
+
+class ProductGallery(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE,verbose_name='کالا',related_name='product_image_gallery')
+    file_upload=UploadFile('images2','product_gallery')
+    image_name=models.ImageField(upload_to=file_upload.upload_to,verbose_name='تصویر کالا') 
+       
+    def __str__(self):
+        return self.product.product_name
+
+    class Meta:
+        verbose_name ='تصویر'
+        verbose_name_plural ='تصاویر'
+        db_table ='t_productgallery'

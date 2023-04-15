@@ -1,0 +1,404 @@
+{% extends 'index.html' %}
+
+{% load humanize %}
+{% load render_partial %}
+
+{% block title %}
+    صفحه ی اصلی
+{% endblock title %}
+    
+{% load render_partial %}
+
+
+{% block content %}
+
+<div id="page-content" style="margin-top:100px;">
+    <!--MainContent-->
+    <div id="MainContent" class="main-content" role="main">
+        <!--Breadcrumb-->
+        <div class="bredcrumbWrap">
+            <div class="container breadcrumbs">
+                <a href="{% url 'main:index' %}" title="Back to the home page">خانه</a>
+                <span aria-hidden="true">›</span>
+                <a href="#" title="Back to the home page">محصولات</a>
+                <span aria-hidden="true">›</span>
+                <span>محصول</span>
+            </div>
+        </div>
+        <!--End Breadcrumb-->
+        
+        <div id="ProductSection-product-template" class="product-template__container prstyle2 container">
+            <!--#ProductSection-product-template-->
+            <div class="product-single product-single-1">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="product-details-img product-single__photos bottom">
+                            <div class="zoompro-wrap product-zoom-right pl-20">
+                                <div class="zoompro-span">
+                                    <img class="blur-up lazyload zoompro" data-zoom-image="{{media_url}}{{product.image_name}}" alt="" src="{{media_url}}{{product.image_name}}" />               
+                                </div>
+                               
+                                <div class="product-buttons">
+                                    <a href="https://www.youtube.com/watch?v=93A2jOW5Mog" class="btn popup-video" title="View Video"><i class="icon anm anm-play-r" aria-hidden="true"></i></a>
+                                    <a href="#" class="btn prlightbox" title="Zoom"><i class="icon anm anm-expand-l-arrows" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="product-thumb product-thumb-1 product_detail_gallery" >
+                                <div id="gallery" class="product-dec-slider-1 product-tab-left">
+
+                                    
+                                    {% for image in product.product_image_gallery.all %}
+                                        
+                                        <a data-image="{{media_url}}{{image.image_name}}" data-zoom-image="{{media_url}}{{image.image_name}}" class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" tabindex="-1">
+                                            <img class="blur-up lazyload" src="{{media_url}}{{image.image_name}}" alt="" />
+                                        </a>
+                                    {% endfor %}
+                                        
+
+
+                                </div>
+                            </div>
+                            
+                            <div class="lightboximages">
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible-big1.jpg" data-size="1462x2048"></a>
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible-big2.jpg" data-size="1462x2048"></a>
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible-big3.jpg" data-size="1462x2048"></a>
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible7-big.jpg" data-size="1462x2048"></a>
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible-big4.jpg" data-size="1462x2048"></a>
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible-big5.jpg" data-size="1462x2048"></a>
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible-big6.jpg" data-size="731x1024"></a>
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible-big7.jpg" data-size="731x1024"></a>
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible-big8.jpg" data-size="731x1024"></a>
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible-big9.jpg" data-size="731x1024"></a>
+                                <a href="{{media_url}}images/product-detail-page/camelia-reversible-big10.jpg" data-size="731x1024"></a>
+                            </div>
+
+                        </div>
+                        <!--Product Feature-->
+                        <div class="prFeatures">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 feature">
+                                    <img src="{{media_url}}images/credit-card.png" alt="Safe Payment" title="Safe Payment" />
+                                    <div class="details">
+                                        <h3>پرداخت ایمن</h3>
+                                        <span>با خیال راحت پرداخت کنید</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 feature">
+                                    <img src="{{media_url}}images/shield.png" alt="Confidence" title="Confidence" />
+                                    <div class="details">
+                                        <h3>اعتماد</h3>
+                                        <span>حفاظت اطلاعات خرید و شخصی شما را پوشش می دهد.</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 feature">
+                                    <img src="{{media_url}}images/worldwide.png" alt="Worldwide Delivery" title="Worldwide Delivery" />
+                                    <div class="details">
+                                        <h3>ارسال</h3>
+                                        <span>ارسال رایگان و سریع به بیش از 200+ منطقه..</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 feature">
+                                    <img src="{{media_url}}images/phone-call.png" alt="Hotline" title="Hotline" />
+                                    <div class="details">
+                                        <h3>تماس</h3>
+                                        <span>برای سوال خود با شماره 33218921-021 با خط راهنمایی تماس بگیرید</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Product Feature-->
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="product-single__meta product_detail_style">
+                            <h1 class="product-single__title">{{product.product_name}}</h1>
+
+                            <div class="prInfoRow">
+                                <div class="product-stock"> 
+                                    <span class="instock ">موجود</span> 
+                                    <span class="outstock hide">ناموجود</span> 
+                                </div>
+                                <div class="product-sku">
+                                    <span>برند:</span>
+                                    {% if product.brand %}
+                                        <span class="variant-sku">{{product.brand}}</span>
+                                    {% else %}
+                                        <span class="variant-sku">نامشخص</span>
+                                    {% endif %}    
+                                </div>
+                                <div class="">
+                                    {% if user.is_authenticated %}
+                                        {% if product.get_score_user > 0 %}
+                                            {% with ''|center:5 as range %}
+                                                {% for i in range %}
+                                                    {% if forloop.counter <= product.get_score_user %}
+                                                        <i id="star_{{forloop.counter}}" class="fa fa-star scoring_checked" aria-hidden="true"></i>
+                                                    {% else %}
+                                                        <i id="star_{{forloop.counter}}" class="fa fa-star" aria-hidden="true"></i>
+                                                    {% endif %}
+                                                {% endfor %} 
+                                            {% endwith %}
+                                        {% else %}
+                                            <i id="star_1" class="fa fa-star scoring_star_pointer" onclick="addScore(1,{{product.id}})" aria-hidden="true"></i>
+                                            <i id="star_2" class="fa fa-star scoring_star_pointer" onclick="addScore(2,{{product.id}})" aria-hidden="true"></i>
+                                            <i id="star_3" class="fa fa-star scoring_star_pointer" onclick="addScore(3,{{product.id}})" aria-hidden="true"></i>
+                                            <i id="star_4" class="fa fa-star scoring_star_pointer" onclick="addScore(4,{{product.id}})" aria-hidden="true"></i>
+                                            <i id="star_5" class="fa fa-star scoring_star_pointer" onclick="addScore(5,{{product.id}})" aria-hidden="true"></i>
+                                            
+                                        {% endif %}
+                                    {% else %}
+                                        <span>وارد شوید</span>
+                                    {% endif %}
+                        
+                                </div>
+                                <div class="product-review">
+                                    <span>
+                                        تعداد نظرات :
+                                        {{product.comments_product.all|length}} 
+                                    </span>
+                                </div>
+                                <div class="product-review">
+                                    <span>
+                                         میانگین امتیاز :
+                                         <span class="avg_score">{{product.get_avg_scores}}</span>
+                                         
+                                    </span>
+                                </div>
+
+                            </div>
+                            <p class="product-single__price product-single__price-product-template">
+                                
+                                
+                                <span class="product-price__price product-price__price-product-template product-price__sale product-price__sale--single">
+                                    <span id="ProductPrice-product-template"><span class="money">{{product.price | intcomma }} تومان</span></span>
+                                </span>
+ 
+                            </p>
+                        <div class="product-single__description rte mb-5">
+                            <p>
+
+                                {{product.short_text}}
+
+                            </p>
+                        </div>
+                        <form method="post" action="http://annimexweb.com/cart/add" id="product_form_10508262282" accept-charset="UTF-8" class="product-form product-form-product-template hidedropdown mb-3" enctype="multipart/form-data">
+                            <div class="product-action clearfix">
+                                <div class="product-form__item--quantity">
+                                    <div class="wrapQtyBtn">
+                                        <div class="qtyField">
+                                            <a class="qtyBtn minus" href="javascript:void(0);"><i class="fa anm anm-minus-r" aria-hidden="true"></i></a>
+                                            <input type="text" id="product-quantity" name="quantity" value="1" class="product-form__input qty">
+                                            <a class="qtyBtn plus" href="javascript:void(0);"><i class="fa anm anm-plus-r" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="product-form__item--submit">
+                                    <button type="button" name="add" class="btn product-form__cart-submit product_detail_btn" onclick="add_to_shop_cart({{product.id}},0)">
+                                        <span>اضافه به سبد خرید</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- End Product Action -->
+                        </form>
+                        <div class="display-table shareRow">
+                                
+                                <div class="display-table-cell medium-up--one-third">
+
+                                </div>
+                                <div class="display-table-cell text-right">
+                                    <div class="social-sharing">
+                                        <a target="_blank" href="#" class="btn btn--small btn--secondary btn--share share-facebook" title="Share on Facebook">
+                                            <i class="fa fa-facebook-square" aria-hidden="true"></i> <span class="share-title" aria-hidden="true">Share</span>
+                                        </a>
+                                        <a target="_blank" href="#" class="btn btn--small btn--secondary btn--share share-twitter" title="Tweet on Twitter">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i> <span class="share-title" aria-hidden="true">Tweet</span>
+                                        </a>
+                                        <a href="#" title="Share on google+" class="btn btn--small btn--secondary btn--share" >
+                                            <i class="fa fa-google-plus" aria-hidden="true"></i> <span class="share-title" aria-hidden="true">Google+</span>
+                                        </a>
+                                        <a target="_blank" href="#" class="btn btn--small btn--secondary btn--share share-pinterest" title="Pin on Pinterest">
+                                            <i class="fa fa-pinterest" aria-hidden="true"></i> <span class="share-title" aria-hidden="true">Pin it</span>
+                                        </a>
+                                        <a href="#" class="btn btn--small btn--secondary btn--share share-pinterest" title="Share by Email" target="_blank">
+                                            <i class="fa fa-envelope" aria-hidden="true"></i> <span class="share-title" aria-hidden="true">Email</span>
+                                        </a>
+                                     </div>
+                                </div>
+                            </div>
+                    </div>
+                        <!--Product Tabs-->
+                        <div class="tabs-listing">
+                            <div class="tab-container">
+                                <h3 class="acor-ttl active" rel="tab1">جزیئات محصول</h3>
+                                <div id="tab1" class="tab-content">
+                                    <div class="product-description rte">
+                                        <p>
+                                            {{product.description|safe}}
+                                        
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <!-- <h3 class="acor-ttl" rel="tab2">نظرات</h3>
+                                <div id="tab2" class="tab-content">
+
+                                </div> -->
+                                <h3 class="acor-ttl" rel="tab3">مشخصات</h3>
+                                <div id="tab3" class="tab-content">
+                                    <h3>مشخصات محصول</h3>
+                                    <table>
+                                      <tbody>
+                                        <tr>
+                                          <th>مشخصات</th>
+                                          <th>مقدار مشخصات</th>
+                                        </tr>
+                                        {% for feature in product.product_features.all %}
+                                            <tr class="product_detail_feature">
+                                                <td>{{feature.feature}}</td>
+                                                <td>{{feature.value}}</td>
+                                            </tr>
+                                        {% endfor %} 
+
+
+                                      </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--End Product Tabs-->
+                    </div>
+                </div>
+            <!--End-product-single-->    
+
+            <section class="gradient-custom">
+                <div class="container my-5 py-5">
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-md-12 col-lg-10 col-xl-8">
+                      <div class="card">
+                        <div class="card-body p-4">
+                          <h4 class="text-center mb-4 pb-2 comment_title">نظرات کاربران</h4>
+              
+                          <div class="row">
+                            <div class="col">
+                              <div class="d-flex flex-start">
+
+                                <div class="flex-grow-1 flex-shrink-1">
+                                    {% for comment in product.comments_product.all %}
+                                        {% if comment.is_active %}
+                                            {% if comment.comments_parent == None %}
+                                                <!-- parent comment -->
+                                                <div>
+                                                        
+                                                            <img class="rounded-circle shadow-1-strong me-3"
+                                                            src="{{media_url}}myImages/avatar/no_image_comments.jpg" alt="avatar" width="65"
+                                                            height="65" />
+
+                                                            
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <p class="mb-1">
+                                                                {{comment.commenting_user}} <span class="small">- {{comment.register_date}}</span>
+                                                            </p>
+
+
+                                                            <!-- reply -->
+                                                            {% if user.is_authenticated %}
+                                                                <a href="#!" id="btn_{{comment.id}}" onclick="showcreatecommentForm( {{product.id}} , {{comment.id}} ,'{{product.slug}}' )">
+                                                                    <i class="fa fa-reply fa-xs"></i>
+                                                                    <span class="small comment_reply"> پاسخ</span>
+                                                                </a>
+                                                                <div id="comment_form_{{comment.id}}">
+
+                                                                </div>
+                                                            {% endif %}    
+
+                                                        </div>
+                                                        <p class="small mb-0 comment_text">
+                                                            {{comment.comment_text}}    
+                                                        </p>
+                                                </div>
+
+
+                                            
+
+                                            {% for comment_child in comment.comment_child.all %}
+                                                {% if comment_child.is_active %}
+                                                    <!-- child comment -->
+                                                    <div class="d-flex flex-start mt-4">
+                                                            <a class="me-5" href="#" >
+                                                                <img class="rounded-circle shadow-1-strong"
+                                                                    src="{{media_url}}myImages/avatar/no_image_comments.jpg" alt="avatar"
+                                                                    width="65" height="65" />
+                                                            </a>
+                                                            <div class="flex-grow-1 flex-shrink-1">
+                                                                <div>
+                                                                    
+                                                                    <div class="d-flex justify-content-between align-items-center">
+                                                                    <p class="mb-1">
+                                                                        {{comment_child.commenting_user}} <span class="small">- {{comment_child.register_date}}</span>
+                                                                    </p>
+                                                                    </div>
+                                                                    <p class="small mb-0 comment_text">
+                                                                        {{comment_child.comment_text}}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                    <!-- End child comment -->
+              
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% else %}  
+                                        
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}  
+
+                                </div>
+
+                              </div>
+              
+                            </div>
+                          </div>
+                          {% if user.is_authenticated %}
+                            <h3 class="reviews-view__header mt-3 mb-3 create_comment_title">دیدگاه خود را بنویسید</h3>
+                            <div class="row">
+                                <div class="col-12 col-lg-9 col-xl-8">
+                                    {% render_partial 'csws:create_comment' slug=product.slug %}
+                                </div>
+                            </div>
+                          {% else %}
+                            <h5 class="mt-3">برای ثبت نظر
+                                <a href="{% url 'accounts:user_login' %}?next=/product/{{product.slug}}/" class="text-danger">ورود</a>
+                                یا
+                                <a href="{% url 'accounts:user_register' %}?next=/product/{{product.slug}}/" class="text-danger">ثبت نام</a>
+                                انجام دهید.
+                            </h5>    
+                          {% endif %}   
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+            <!--Related Product Slider-->
+            {% render_partial 'products:related_product' slug=product.slug %}
+            <!--End Related Product Slider-->
+        </div>
+    <!--MainContent-->
+</div>
+<!--End Body Content-->
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+<div class="related-product grid-products mt-5 product_detail_related_slider">
+    <header class="section-header related_product_title">
+        <h2 class="section-header__title text-center h2">
+            <span>محصولات مرتبط</span>
+        </h2>
+        
+    </header>
+    <div class="productPageSlider ">
+        
+        {% for product in related_products %}
+            <div class="col-12 item">
+                    {% include 'partials/product/product_box2.html' %}
+            </div>
+        {% endfor %}
+
+    </div>
+</div>

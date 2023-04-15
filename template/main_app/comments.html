@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+body {
+    background-color: #F4F4F4 !important
+}
+
+.comments_title_style {
+    margin-top: 2%;
+    margin-left: 27%;
+    font-family: 'Manrope', sans-serif;
+    font-weight: bold
+}
+
+.comments_card_style {
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 40px
+}
+
+.comments_image_style {
+    border-radius: 10px;
+    padding-right: 5px;
+    width: 60px;
+    height: 55px
+}
+
+.comments_image_style:hover {
+    cursor: pointer
+}
+
+.round_comments .align-self-start {
+    border-radius: 100%;
+    width: 45px;
+    height: 40px
+}
+
+.media .comment {
+    background: #F4F4F4;
+    border: none;
+    border-radius: 10px
+}
+
+h6.user {
+    color: #5C5C5C;
+    font-size: 15px !important;
+    padding-left: 15px !important;
+    margin-bottom: 0
+}
+
+h6.user:hover {
+    cursor: pointer;
+    text-decoration: underline
+}
+
+p.text {
+    margin-bottom: 0;
+    color: #8A8A8A !important;
+    font-size: 14px
+}
+
+.comments_margin {
+    margin-right: 10px
+}
+
+p .reply {
+    color: #5C5C5C;
+    font-size: 15px
+}
+
+@media screen and (min-width: 576px) {
+    .comment {
+        width: 470px !important
+    }
+}
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row ">
+            <h3 class="">My Notifications</h3>
+        </div>
+    </div>
+    <div class="container mt-1 d-flex justify-content-center">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card comments_card_style">
+                    <ul class="list-unstyled">
+                        <!--FIRST LIST ITEM-->
+                        <li class="media">
+                            <span class="round  round_comments pt-2">
+                                <img src="https://img.icons8.com/bubbles/100/000000/groups.png" class="align-self-start mr-3 comments_image_style" >
+                            </span>
+                            <div class="media-body">
+                                <div class="row d-flex">
+                                    <h6 class="user pt-2">Michael Andrews</h6>
+                                    <div class="comments_margin">
+                                        <p class="text">3m</p>
+                                    </div>
+                                </div>
+                                <p class="text">Liked four of your artworks</p>
+                                <div class="images mt-2">
+                                     <img src="https://img.icons8.com/bubbles/100/000000/couple-icloud.png" class="comments_image_style"/>
+                                     <img src="https://img.icons8.com/bubbles/100/000000/check-male.png" class="comments_image_style" /> 
+                                     <img src="https://img.icons8.com/bubbles/100/000000/lock-female-user.png" class="comments_image_style"/> 
+                                     <img src="https://img.icons8.com/bubbles/100/000000/lock-male-user.png" class="comments_image_style"/> 
+                                </div>
+                            </div>
+                        </li>
+                        <!--SECOND LIST ITEM-->
+                        <li class="media my-5"> 
+                            <span class="round round_comments"> 
+                                <img src="https://img.icons8.com/bubbles/100/000000/lock-female-user.png" class="align-self-start mr-3 comments_image_style"> 
+                            </span>
+                            <div class="media-body">
+                                <div class="row d-flex">
+                                    <h6 class="user">Craig Carder</h6>
+                                    <div class="comments_margin">
+                                        <p class="text">9m</p>
+                                    </div>
+                                </div>
+                                <p class="text">Followed you</p>
+                            </div>
+                        </li>
+                        <!--THIRD LIST ITEM-->
+                        <li class="media"> 
+                            <span class="round round_comments">
+                                <img src="https://img.icons8.com/bubbles/100/000000/groups.png" class="align-self-start mr-3 comments_image_style">
+                            </span>
+                            <div class="media-body">
+                                <div class="row d-flex">
+                                    <h6 class="user">Allison Kenter, Alhena Culhane and 57 others</h6>
+                                    <div class="comments_margin">
+                                        <p class="text">1h</p>
+                                    </div>
+                                </div>
+                                <p class="text mb-2">Liked your "Women in Jail" Artwork</p> 
+                                <img src="https://img.icons8.com/bubbles/100/000000/lock-female-user.png" class="comments_image_style"/>
+                            </div>
+                        </li>
+                        <!--FOURTH LIST ITEM-->
+                        <li class="media my-5"> 
+                            <span class="round round_comments">
+                                <img src="https://img.icons8.com/office/100/000000/user-group-man-man--v1.png" class="align-self-start mr-3 comments_image_style">
+                            </span>
+                            <div class="media-body">
+                                <div class="row d-flex">
+                                    <h6 class="user">Giana Ekstrom Bothman</h6>
+                                    <div class="comments_margin">
+                                        <p class="text">2h</p>
+                                    </div>
+                                </div>
+                                <p class="text">Commented on your"Le Doux" Artwork</p>
+                                <div class="media mt-3 comment"> 
+                                    <a href="#">
+                                        <img src="https://img.icons8.com/bubbles/100/000000/lock-male-user.png" class="align-self-center mr-1 comments_image_style">
+                                    </a>
+                                    <div class="media-body">
+                                        <p class="reply">"Love this art, what inspired you to make this<br>&nbsp;wonderful artwork?"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--FIFTH LIST ITEM-->
+                        <li class="media"> 
+                            <span class="round round_comments">
+                                <img src="https://img.icons8.com/office/100/000000/user-group-woman-woman.png" class="align-self-start mr-3">
+                            </span>
+                            <div class="media-body">
+                                <div class="row d-flex">
+                                    <h6 class="user">Leo Aminoff</h6>
+                                    <div class="comments_margin">
+                                        <p class="text">24h</p>
+                                    </div>
+                                </div>
+                                <p class="text">Bought your "Palace of Versailles"</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

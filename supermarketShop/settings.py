@@ -30,6 +30,20 @@ INSTALLED_APPS = [
     
     'apps.accounts.apps.AccountsConfig',
     'apps.product.apps.ProductConfig',
+    'ckeditor',
+    'ckeditor_uploader',
+    'django_render_partial',
+    'django_admin_listfilter_dropdown',
+    'django.contrib.humanize',
+    'apps.article.apps.ArticleConfig',
+    'jalali_date',
+    'apps.comments_scoring_whislistApp.apps.CommentsScoringWhislistappConfig',
+    'django_filters',
+    'apps.orderApp.apps.OrderappConfig',
+    'apps.discountsApp.apps.DiscountsappConfig',
+    'apps.paymentApp.apps.PaymentappConfig',
+    'apps.warehouseApp.apps.WarehouseappConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -40,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middlewares.middlewares.RequesMiddleware',
 ]
 
 ROOT_URLCONF = 'supermarketShop.urls'

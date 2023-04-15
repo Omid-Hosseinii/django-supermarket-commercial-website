@@ -1,0 +1,23 @@
+<div class="sidebar_widget categories filter-widget">
+    <div class="widget-title">
+        <h2>دسته ها</h2>
+    </div>
+    <div class="widget-content">
+        <ul class="sidebar_categories">
+            
+            {% for group in product_groups %}
+                <li class="lvl-1">
+                    <a href="{% url 'products:products_ech_group' slug=group.slug %}" class="site-nav group_filter_title">
+                        {{ group.group_title}}
+                    </a>
+                </li>
+            {% endfor %}
+                
+        </ul>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% load humanize %}
+{% load render_partial %}
+
+
+{% block title %}
+    صفحه ی سفارش
+{% endblock title %}
+    
+
+
+
+{% block content %}
+
+    <div id="shop_cart_list">
+        {% render_partial 'orders:show_shop_cart' %}
+    </div>
+
+{% endblock content %}

@@ -1,7 +1,801 @@
-/* rtl slider main page */
+/* Defined font face */
 
-.productSlider,.slideshow,.main_collection_slider{
-    direction: ltr !important;
+@font-face {
+  font-family: 'IRANYekanRegular';
+  src: url('/static/fonts/fonts1/IRANYEKAN/IRANYekanRegular.ttf') format('truetype');
+  font-weight: bold !important;
+  font-style: normal !important;
+}
+
+@font-face {
+  font-family: 'IRANYekanBold';
+  src: url('/static/fonts/fonts1/IRANYEKAN/IRANYekanBold.ttf') format('truetype');
+  font-weight: bold !important;
+  font-style: normal !important;
+}
+
+@font-face {
+  font-family: 'IRANYekanThin';
+  src: url('/static/fonts/fonts1/IRANYEKAN/IRANYekanThin.ttf') format('truetype');
+  font-weight: bold !important;
+  font-style: normal !important;
+}
+
+
+@font-face {
+  font-family: 'VazirMatnBold';
+  src: url('/static/fonts/my_custom_fonts/vazir/fonts/ttf/Vazirmatn-Bold.ttf') format('truetype');
+  font-weight: bold !important;
+  font-style: normal !important;
+}
+
+@font-face {
+  font-family: 'VazirMatnRegular';
+  src: url('/static/fonts/my_custom_fonts/vazir/fonts/ttf/Vazirmatn-Regular.ttf') format('truetype');
+  font-weight: 100 !important;
+  font-style: normal !important;
+}
+
+@font-face {
+  font-family: 'Vazirmatn-Thin';
+  src: url('/static/fonts/my_custom_fonts/vazir/fonts/ttf/Vazirmatn-Thin.ttf') format('truetype');
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+
+/* ____________________________________________________________________________________________ */
+/* header style */
+
+.shop_cart_icon{
+  font-size:22px;
+  margin-right: 16px;
+}
+.shop_cart_icon>a>i:hover{
+  color: #005bab;
+}
+
+
+.topheader_font {
+  font-family: 'IRANYekanBold';
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.topheader_user_font>li>a {
+
+  font-family: 'IRANYekanRegular';
+  font-size: 15px;
+  color: #000000;
+}
+
+/* ________________________________________________________________________________________________________________________________ */
+/* navbar titile */
+.navbar_font>ul>li>a>span,
+.navbar_font>ul>li>a>b {
+  font-family: 'IRANYekanRegular';
+  font-size: 20px;
+}
+
+.product_nav_parent {
+  font-family: 'IRANYekanBold' !important;
+  font-size: 20px !important;
+  font-weight: bold;
+}
+.product_nav_child {
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 18px !important;
+  font-weight: normal;
+}
+/* End header style */
+
+/* ________________________________________________________________________________________________________________________________ */
+/* rtl slider main page and product detail gallery */
+
+.productSlider,
+.slideshow,
+.main_collection_slider,
+.product_detail_gallery,
+.product_detail_related_slider {
+  direction: ltr !important;
 }
 
 /* Endrtl slider main page */
+/* ________________________________________________________________________________________________________________________________ */
+/* general style */
+
+.breadcrumbs a,
+.breadcrumbs span {
+  font-family: 'IRANYekanRegular';
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.message__head {
+  font-family: 'IRANYekanBold';
+  font-size: 20px;
+  font-weight: bold;
+}
+.message__text{
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+}
+
+
+/* End general style */
+/* ________________________________________________________________________________________________________________________________ */
+/* login & register user style */
+
+.login_title , .register__form p > label{
+  font-family: 'IRANYekanBold';
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.login_sub a{
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: 100;
+  color: #000000;
+  text-decoration: none !important;
+}
+
+.login_btn  {
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 16px !important;
+  background-color: #005bab !important;
+  color: #fff !important;
+  padding: 3px 15px !important;
+}
+.register__form_btn{
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 16px !important;
+  background-color: #005bab !important;
+  color: #fff !important;
+  padding: 3px 15px !important;
+  max-width: 400px !important;
+  max-width: 100px !important;
+
+}
+
+/* End login & register user style */
+/* ________________________________________________________________________________________________________________________________ */
+/* about us style */
+
+.about_us_style > h1 {
+  font-family: 'IRANYekanBold';
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.about_us_style > p {
+  font-family: 'IRANYekanRegular';
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.about_us_style div > span {
+  font-family: 'IRANYekanBold';
+  font-size: 22px;
+  font-weight: bold;
+}
+.about_us_style div > p {
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: normal;
+}
+
+
+/* End about us style */
+/* ________________________________________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________________________________________ */
+/* home style */
+.border_box {
+  border: 1px solid #afafaf;
+  border-radius: 8px;
+  box-shadow: 1px 2px 2px rgba(174, 174, 174, 0.51);
+}
+
+.slider_subtitle{
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 18px !important;
+
+}
+.slider_btn {
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 22px !important;
+  background-color: #005bab !important;
+  color: #fff !important;
+}
+
+.icon_background_style {
+  background-color: #005bab !important;
+  font-size: 20px;
+}
+
+.icon_background_style:hover {
+  font-size: 25px;
+}
+
+.card_header_style>h2,
+.group_header_style>h2,
+.article_home_style>h2 {
+  font-family: 'IRANYekanBold';
+  font-size: 32px !important;
+}
+
+.card_header_style>p,
+.group_header_style>a>p {
+  font-family: 'IRANYekanThin';
+  font-size: 18px !important;
+}
+
+.group_header_style>a>p:hover {
+  font-size: 24px !important;
+
+}
+
+.product-name>a {
+  font-family: 'IRANYekanRegular';
+  font-size: 24px !important;
+
+}
+
+.product-price>.price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.title_group_style {
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #005bab !important;
+  color: #fff !important;
+
+}
+
+.group_header_style {
+  margin-bottom: 40px;
+}
+
+.store-info li>h5 {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* End home style */
+/* ________________________________________________________________________________________________________________________________ */
+/* article style */
+
+
+
+.loadMorepost {
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #005bab !important;
+
+}
+
+.article__title>a,
+.article_title_style>a {
+  font-family: 'IRANYekanRegular';
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.article__grid-excerpt,
+.article_text_style>p {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: normal;
+
+}
+
+
+.article_btn {
+  text-decoration: none;
+  font-family: 'IRANYekanRegular';
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #005bab !important;
+  color: #fff !important;
+}
+.article__meta-buttons>li>a {
+  text-decoration: none;
+  font-family: 'IRANYekanRegular';
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #005bab !important;
+  color: #fff !important;
+  padding: 3px 10px !important;
+}
+
+/* End article style */
+/* ________________________________________________________________________________________________________________________________ */
+
+/* footer style */
+.text_footer_style>h5,
+.link_footer_style>h5,
+.schedule_footer_style>h5 {
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text_footer_style>p {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: normal;
+}
+
+
+.link_footer_style ul>li>a {
+  text-decoration: none;
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.schedule_footer_style>table>tbody tr>td {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: normal;
+
+}
+
+
+
+/* End footer style */
+/* ________________________________________________________________________________________________________________________________ */
+/* product detail style */
+.product_name_related {
+  height: 75px;
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000 !important;
+}
+
+
+
+
+
+.product_detail_style > h1 {
+  font-family: 'IRANYekanBold';
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.product-stock span {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.product-sku span {
+  font-family: 'IRANYekanRegular';
+  font-size: 14px;
+  font-weight: 400;
+}
+.product-review span {
+  font-family: 'IRANYekanRegular';
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.product-single__description > p {
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: 600;
+  
+}
+
+.product_detail_btn{
+  background-color: #3dae50 !important;
+  color: #fff !important;
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: 600;
+  
+}
+
+.product-description > p{
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: normal;
+
+
+}
+
+.tabs-listing > .tab-container h3 {
+  font-family: 'IRANYekanBold';
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+.tabs-listing > .tab-container > .tab-content > h3 {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: 600;
+  color:#000000;
+}
+.tabs-listing > .tab-container > .tab-content > table > tbody > tr  th {
+  font-family: 'IRANYekanBold';
+  font-size: 14px;
+  font-weight: bold;
+  color:#000000;
+}
+
+.product_detail_feature td {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.prFeatures > div > div > div h3 {
+  font-family: 'IRANYekanBold';
+  font-size: 18px;
+  font-weight: bold;
+  color:#000000;
+}
+.prFeatures > div > div > div span{
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.btn_related_product{
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #005bab !important;
+  color:#fff !important;
+}
+.btn_related_product:hover{
+  background-color: #0e74ce !important;
+}
+
+.related_product_title > h2 > span{
+  font-family: 'IRANYekanBold';
+  font-size: 18px;
+  font-weight: bold;
+  color:#000000;
+}
+
+.product_related_image {
+  height: 300px;
+  object-fit:cover;
+}
+
+/* product detail style */
+/* ________________________________________________________________________________________________________________________________ */
+/* scoring comments style */
+
+.scoring_checked {
+  color: rgb(255, 225, 0);
+}
+
+.scoring_star_pointer {
+  cursor: pointer;
+}
+
+.gradient-custom {
+  background: #eaecec;
+}
+
+.comment_title{
+  font-family: 'IRANYekanBold';
+  font-size: 20px;
+  font-weight: bold;
+
+}
+.comment_reply{
+  font-family: 'IRANYekanBold';
+  font-size: 16px;
+  font-weight: bold;
+}
+.create_comment_title{
+  font-family: 'IRANYekanBold';
+  font-size: 20px;
+  font-weight: bold;
+}
+.comments_review{
+  font-family: 'IRANYekanBold';
+  font-size: 18px;
+  font-weight: bold;
+}
+.comment_text{
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: 100;
+  color:#000000 !important;
+}
+.create_comment_btn{  
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: 300;
+  background-color: #005bab !important;
+  color:#fff !important;
+
+}
+.create_comment_btn:hover{
+  background-color: #0e74ce !important;
+}
+/* End scoring comments style */
+/* ________________________________________________________________________________________________________________________________ */
+
+/* products groups page style */
+
+
+/* filters section */
+.sidebar_filter_menu{
+  border-left: 1px groove #eaececd7 ;
+}
+
+
+#filter_state{
+  display: none;
+  border: 2px solid #0573d3;
+  padding: 0px 10px;
+  margin-bottom: 27px;
+  border-radius:5px;
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  color: #005bab ;
+  text-decoration: none;
+}
+
+.btn_filter{
+  color: #fff !important;
+  background-color:#005bab ;;
+  border: 1px solid #ccc;
+  border-radius:3px;
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+}
+.btn_filter:hover{
+  background-color:#02549c ;;
+  
+}
+
+.widget-title > h2 {
+  font-family: 'IRANYekanBold';
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.group_filter_title {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: normal;
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
+.filter_price{
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: normal;
+  color: #000000 !important;
+}
+
+.filter_brand > li > label {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: normal;
+  color: #000000 !important;
+  
+}
+.filter_feature > li > a {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+.filter_feature > li > ul > li > label {
+  font-family: 'IRANYekanRegular';
+  font-size: 14px;
+  font-weight: 100;
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+/* End filters section */
+
+
+/* products section */
+.product_group_page > .category-description > h3 {
+  font-family: 'IRANYekanBold';
+  font-size: 18px;
+  font-weight: bold;
+}
+.product_group_page > .category-description > p {
+  font-family: 'IRANYekanRegular';
+  font-size: 14px;
+  font-weight: 100;
+  color: #000000 !important;
+}
+.product_group_page-title{
+  text-decoration: underline;
+  font-size: 20px !important;
+}
+
+.filters-toolbar__product-count{
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: 100;
+  color: #000000 !important;
+}
+
+.ordered_filter_product_group_page , .ordered_filter_product_group_page option {
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 14px !important;
+  font-weight: 100 !important;
+  color: #000000 !important;
+
+}
+
+#stats li
+{
+  display: inline;
+  list-style-type: none;
+  padding-right: 0px;
+  float: right;
+  
+}
+
+#stats li.active > .page-link {
+  background-color: #005bab !important;
+  border-color: #005bab !important;
+
+
+}
+
+/* End products section */
+
+
+
+
+/* End products groups page style */
+/* ________________________________________________________________________________________________________________________________ */
+/* orders styles */
+
+.indicator__value {
+	height: 15px;
+	font-size: 10px;
+	padding: 0 5px;
+	border-radius: 1000px;
+	position: relative;
+	top: -11px;
+	background: #fff;
+	color: #3d464d;
+	font-weight: 700;
+	margin-right: -5px;
+	margin-left: -8px
+}
+
+.order_page_title{
+  font-family: 'IRANYekanBold';
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.order_table > thead > tr th {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.order_name {
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: 100;
+  color: #000000;
+}
+.order_price {
+  font-family: 'IRANYekanRegular';
+  font-size: 14px;
+  font-weight: 100;
+  color: #000000;
+}
+
+.order_btn_refresh {
+  background-color: #005bab !important;
+  color: #fff !important;
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.order_name_table2 {
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  color: #000000 !important;
+}
+.order_value_table2 {
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 16px !important;
+  font-weight: normal !important;
+  color: #000000 !important;
+}
+
+.order_btn_continue{
+  background-color: #005bab !important;
+  color: #fff !important;
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: 400;
+}
+/* End orders styles */
+/* ________________________________________________________________________________________________________________________________ */
+/* checkout style */
+
+.checkout_form_information > h3 , .checkout_form_information > h2 {
+  font-family: 'IRANYekanBold';
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.checkout_form_information > .form-row > div > label ,
+.checkout_form_information > .form-group > label{
+  font-family: 'IRANYekanRegular';
+  font-size: 16px;
+  font-weight: 300;
+  color: #000000;
+}
+
+.order_checkout_btn {
+  background-color: #005bab !important;
+  color: #fff !important;
+  font-family: 'IRANYekanRegular';
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.payment_checkout div > label {
+  font-family: 'IRANYekanRegular';
+  font-size: 12px;
+  font-weight: 300;
+  color: #000000;
+}
+
+.checkout_form_information > div > table > thead > tr > th ,
+.checkout_form_information > div > table > tbody > tr th ,
+.checkout_final_total_title {
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  color: #000000 !important;
+}
+
+.checkout__totals-products > tr > td {
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 12px !important;
+  font-weight: 100 !important;
+  color: #000000 !important;
+}
+.checkout_price { 
+  font-family: 'IRANYekanRegular' !important;
+  font-size: 12px !important;
+  font-weight: 100 !important;
+  color: #000000 !important;
+
+}
+.coupon_btn{
+  background-color: #005bab !important;
+  color: #fff !important;
+  font-family: 'IRANYekanRegular';
+  font-size: 12px;
+  font-weight: 400;
+}
+/* End checkout style */
+/* ________________________________________________________________________________________________________________________________ */

@@ -13,12 +13,24 @@
 
     {% include 'partials/messages.html' %}
 
-    <div class="container" style="margin-top:200px;margin-bottom:200px;">
-        <form action="" method="post">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="ثبت نام">
-        </form>
+    <div style="margin-top:120px; margin-bottom:50px;">
+        <div class="bredcrumbWrap">
+            <div class="container breadcrumbs">
+                <a href="{% url 'main:index' %}" title="Back to the home page">خانه</a>
+                <span aria-hidden="true">›</span>
+                <span>ورود کاربر</span>
+            </div>
+        </div>
+    
+        <div class="container" style="max-width: 600px !important;">
+            <form action="" method="post" class="register__form">
+                {% csrf_token %}
+                {{form.as_p}}
+                <div class="text-center">
+                    <input type="submit" value="ثبت نام" class="register__form_btn inline">
+                </div>
+            </form>
+        </div>
     </div>
 
 {% endblock content %}

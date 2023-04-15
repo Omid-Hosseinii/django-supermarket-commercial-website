@@ -1,0 +1,65 @@
+{% extends 'main_user_panel.html' %}
+
+
+
+{% block title %}
+    صفحه ی پنل کاربری
+{% endblock title %}
+    
+{% load render_partial %}
+
+
+{% block content_dashboard %}
+
+    {% include 'partials/messages.html' %}
+
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">اطلاعات کاربری</h1>
+
+        </div>
+  
+        <div class="container-fluid" style="margin-top:20px; margin-bottom:50px;">
+            <div class="row d-flex justify-content-between">
+                <div class="col-6">
+                    <div class="text-center">
+                        {% if user_info.image_name %}
+
+                            <img src="{{media_url}}{{user_info.image_name}}" alt="عکس" style="border-radius: 50%; height:100px; width:100px;" class="mb-3">
+                        {% else %}
+                            <img src="{{media_url}}images/customer/nophoto1.png" alt="عکس" style="border-radius: 50%; height:100px; width:100px;" class="mb-3">
+                            
+                        {% endif %}
+                            
+
+                        <h3 class="mb-3">{{user_info.name}}&nbsp;&nbsp;{{user_info.family}}</h3>
+                        <div class="mb-3">{{user_info.mobile_number}}</div>
+                        <a class="btn btn-primary" href="{% url 'accounts:user_panel_update' %}">ویرایش پروفایل</a>
+                    </div>
+                </div>
+                <div class="col-6 p-5">
+                    <div class="mb-3">
+                        آدرس:
+                        <p>{{user_info.address}}</p>
+                    </div>
+                    <div class="mb-3">
+                        شماره تلفن:
+                        <p>{{user_info.phone_number}}</p>
+                    </div>
+                    <div class="mb-3">
+                        آدرس ایمیل:
+                        <p>{{user_info.email}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% render_partial 'accounts:user_panel_last_order' %}
+
+
+
+    </main>
+
+
+{% endblock content_dashboard %}

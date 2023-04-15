@@ -1,0 +1,145 @@
+{% include 'partials/messages.html' %}
+
+{% load humanize %}
+{% load render_partial %}
+
+<!--Body Content-->
+<div id="page-content" style="margin-top:100px;" id="order_content">
+    <!--Page Title-->
+    <div class="bredcrumbWrap mt-3">
+        <div class="container breadcrumbs">
+            <a href="{% url 'main:index' %}" title="Back to the home page">خانه</a>
+            <span aria-hidden="true">›</span>
+            <span>سبد خرید</span>
+        </div>
+    </div>
+    <!--End Page Title-->
+    {% if shop_cart_count > 0 %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
+
+                    <form action="#" method="post" class="cart style2">
+                        <table class="order_table">
+                            <thead class="cart__row cart__header">
+                                <tr>
+                                    <th colspan="2" class="text-center">محصول</th>
+                                    <th class="text-center">قیمت</th>
+                                    <th class="text-center">قیمت بعد از تخفیف</th>
+                                    <th class="text-center">تعداد</th>
+                                    <th class="text-right">جمع کل</th>
+                                    <th class="action">&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in shop_cart %}
+                                    <tr class="cart__row border-bottom line1 cart-flex border-top">
+                                        <!-- image -->
+                                        <td class="cart__image-wrapper cart-flex-item">
+                                            <a href="#">
+                                                <img class="cart__image" src="{{media_url}}{{item.product.image_name}}" alt="Elastic Waist Dress - Navy / Small">
+                                            </a>
+                                        </td>
+                                        <!-- product name -->
+                                        <td class="">
+                                            <div class="list-view-item__title">
+                                                <a href="#">
+                                                    <span class="order_name">{{item.product.product_name}}</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <!-- cost -->
+                                        <td class="cart__price-wrapper cart-flex-item">
+                                            <span class="money order_price">{{item.price | intcomma}} تومان</span>
+                                        </td>
+                                        <!-- discount -->
+                                        <td class="cart__price-wrapper cart-flex-item">
+                                            <span class="money order_price">{{item.discount_price | intcomma}} تومان</span>
+                                        </td>
+                                        <!-- qty -->
+                                        <td class="cart__update-wrapper cart-flex-item text-right">
+                                            <div class="cart__qty text-center">
+                                                <div class="qtyField">
+                                                    <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
+                                                    <input class="cart__qty-input qty" type="text" name="updates[]" id="qty_{{item.product.id}}" value="{{item.qty}}" pattern="[0-9]*">
+                                                    <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- total price -->
+                                        <td class="text-right small--hide cart-price">
+                                            <div><span class="money order_price">{{item.total_price | intcomma}} تومان</span></div>
+                                        </td>
+                                        <!-- delete -->
+                                        <td class="text-center small--hide">
+                                            <a href="#" class="btn btn--secondary cart__remove" title="Remove tem" onclick="delete_from_shop_cart({{item.product.id}})">
+                                                <i class="icon icon anm anm-times-l"></i>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-left">
+                                        <a  class="btn btn-secondary btn--small cart-continue order_btn_refresh" onclick="update_shop_cart()">
+                                            به روز رسانی سبد خرید
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            </tfoot>
+                    </table> 
+                    </form>                   
+                </div>
+                
+                
+                <div class="container mt-5">
+                    <div class="row">
+
+                        
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 cart__footer ">
+                            <div class="solid-border">	
+                            <div class="row border-bottom pb-2">
+                                <span class="col-12 col-sm-6 cart__subtotal-title order_name_table2">جمع جزء</span>
+                                <span class="col-12 col-sm-6 text-right"><span class="money order_value_table2">{{total_price_detail | intcomma}} تومان</span></span>
+                            </div>
+                            <div class="row border-bottom pb-2 pt-2">
+                                <span class="col-12 col-sm-6 cart__subtotal-title order_name_table2">حمل و نقل</span>
+                                {% if delivery == 0 %}
+                                    <span class="col-12 col-sm-6 text-right order_value_table2">رایگان</span>
+                                {% else %}
+                                    <span class="col-12 col-sm-6 text-right order_value_table2">{{delivery | intcomma}} تومان</span>
+                                {% endif %}
+
+                            </div>
+                            <div class="row border-bottom pb-2 pt-2">
+                                <span class="col-12 col-sm-6 cart__subtotal-title order_name_table2">مالیات</span>
+                                <span class="col-12 col-sm-6 text-right order_value_table2">{{tax | intcomma}} تومان</span>
+                            </div>
+                            <div class="row border-bottom pb-2 pt-2">
+                                <span class="col-12 col-sm-6 cart__subtotal-title"><strong class="order_name_table2">جمع کل</strong></span>
+                                <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money order_value_table2">{{final_price | intcomma}} تومان</span></span>
+                            </div >
+                            <div class="mt-4">
+                                <a class="btn btn-primary btn-xl btn-block cart__checkout-button order_btn_continue" href="{% url 'orders:createorder' %}">ادامه خرید</a>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    {% else %}
+    <div style="margin-top:200px; margin-bottom:200px;">
+        <div class="container text-center" > 
+            <h1 class="text-info">سبد خرید شما خالی است</h1>
+        </div>
+    </div>    
+    {% endif %}
+    
+</div>
+<!--End Body Content-->

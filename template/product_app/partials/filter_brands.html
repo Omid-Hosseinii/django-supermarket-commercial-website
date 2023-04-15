@@ -1,0 +1,23 @@
+
+        
+        
+
+<div class="sidebar_widget categories filter-widget">
+    <div class="widget-title">
+        <h2>برند</h2>
+    </div>
+    <div class="widget-content">
+        <ul class="sidebar_categories filter_brand">
+            {% for brand in brands %}
+                <li class="level1 sub-level">
+                    <input id="item1_{{brand.id}}" name='brand' value="{{brand.id}}" type="checkbox">
+                    <label for="vehicle1">{{brand.brand_title}}</label>   
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% for brand in brands %}
+
+{% endfor %}
+

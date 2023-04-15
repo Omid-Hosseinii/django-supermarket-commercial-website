@@ -1,0 +1,22 @@
+<div class="product-rows section" id="newest_product">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="section-header text-center card_header_style">
+                    <h2 class="h2">آخرین محصولات</h2>
+                    <p>اخرین محصولات فرش مارکت</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-products">
+            <div class="row">
+
+                {% for product in products %}
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 item grid-view-item style2">
+                        {% include 'partials/product/product_box.html' %}          
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+   </div>
+</div>	

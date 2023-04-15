@@ -64,29 +64,4 @@
 /* defined font for ech tag */
 /* -------------------------------------------------------------------------------- */
 
-/* -------------------------------------------------------------------------------- */
-/* header font */
 
-.topheader_font{
-    font-family: 'IRANYekanRegular';
-    font-size:21px;
-    color: #000000;
-}
-
-.topheader_user_font > li > a{
-    
-    font-family: 'IRANYekanRegular';
-    font-size:15px;
-    color: #000000;
-}
-
-/* navbar titile */
-.navbar_font > ul > li > a > span,.navbar_font > ul > li > a > b{
-    font-family: 'VazirRegular';
-    font-size:20px;
-  
-
-}
-
-
-/* -------------------------------------------------------------------------------- */

@@ -1,0 +1,48 @@
+{% load humanize %}
+
+<div class="grid-view_image border_box">
+    <!-- start product image -->
+    <a href="{{product.get_absolute_url}}" class="grid-view-item__link">
+        <!-- image -->
+        <img class="grid-view-item__image primary blur-up lazyload" data-src="{{media_url}}{{product.image_name}}" src="{{media_url}}{{product.image_name}}" alt="image" title="product">
+        <!-- End image -->
+        <!-- Hover image -->
+        <img class="grid-view-item__image hover blur-up lazyload" data-src="{{media_url}}myImages/card/second_image_card.jpg" src="{{media_url}}myImages/card/second_image_card.jpg" alt="image" title="product">
+        <!-- End hover image -->
+        <!-- product label -->
+
+        <!-- <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">new</span></div> -->
+       
+        <!-- End product label -->
+    </a>
+    <!-- end product image -->
+    <!--start product details -->
+    <div class="product-details hoverDetails text-center mobile">
+        <!-- product name -->
+        <div class="product-name">
+            <a href="{{product.get_absolute_url}}">{{product.product_name}}</a>
+        </div>
+        <!-- End product name -->
+        <!-- product price -->
+        <div class="product-price">
+            <!-- <span class="old-price">$500.00</span> -->
+            <span class="price">{{product.price|intcomma}} تومان</span>
+        </div>
+        <!-- End product price -->
+        
+        <!-- product button -->
+        <div class="button-set">
+            <!-- Start product button -->
+            {% if product.get_number_in_warehouse > 0 %}
+                <form class="variants add"  >
+                    <button class="btn cartIcon btn-addto-cart icon_background_style" type="button" tabindex="0" onclick="add_to_shop_cart({{product.id}},1)">
+                        <i class="icon anm anm-bag-l"></i>
+                    </button>
+                </form>
+            {% endif %}
+
+        </div>
+        <!-- end product button -->
+    </div>
+    <!-- End product details -->
+</div>

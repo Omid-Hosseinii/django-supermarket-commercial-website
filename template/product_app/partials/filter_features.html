@@ -1,0 +1,27 @@
+<div class="sidebar_widget categories filter-widget">
+    <div class="widget-title">
+        <h2>ویژگی</h2>
+    </div>
+    <div class="widget-content">
+
+        <ul class="sidebar_categories filter_feature">
+            {% for key,value in feature_dict.items %}
+                {% if value %}
+                    <li class="level1 sub-level">
+                        <a href="#;" class="site-nav">{{key}}</a>
+                        <ul class="sublinks">
+                                {% for item in value %} 
+                                    <li class="level2">
+                                        <input id="item2_{{item.id}}" name='feature' value="{{item.id}}" type="checkbox">
+                                        <label for="vehicle1">{{item}}</label>    
+                                    </li>
+                                {% endfor %}    
+                            </ul>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+
+        </ul>
+    </div>
+</div>

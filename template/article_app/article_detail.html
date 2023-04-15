@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+
+
+{% block title %}
+    {{article_title}}
+{% endblock %}
+  
+
+{% block content %}
+
+    <section class="site-section site-section-sm" style="margin-top:100px; margin-bottom:150px;">
+        <div class="container mb-5 mt-5">
+            <article>
+                <!-- Post header-->
+                <header class="mb-4 article-detail">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-3 mt-5">{{article.title}}</h1>
+                    <span>
+                        نویسندگان :
+                        {% for author in authors %}
+                            <span class="text-muted fst-italic mb-2">{{author.name}} - {{author.family}} &nbsp;&nbsp; </span> 
+                        {% endfor %}
+                        
+
+                    </span><br>  
+                    <!-- <div class="text-muted fst-italic mb-2">{{author}}</div> -->
+                    <span>
+                        تاریخ انتشار :
+                        <div class="text-muted fst-italic mb-2">{{article.get_jalali_date}}</div>
+                    </span>
+                    <!-- Post categories-->
+                    <span>
+                        گروه مقاله :
+                        <div class="badge bg-white">{{article.group}}</div>
+                    </span>
+                </header>
+                <!-- Preview image figure-->
+                <figure class="mb-4"><img class="img-fluid mx-auto d-block border_radius" src="{{media_url}}{{article.main_image_name}}" alt="..." /></figure>
+                <!-- Post content-->
+                <section class="mb-5 ">
+                    <p class="lead fs-5 mb-4 article-detail-description">{{article.text|safe}}</p>
+
+                    <div class="text-center">
+                        {% for image in image_list %}
+                            <img src="{{media_url}}article_images/article_{{article.id}}/{{image}}" alt="this is photo" class="img-cardBlog mb-3 mx-2 border_radius">
+                        {% endfor %}  
+                    </div>    
+
+                </section>
+            </article>
+
+        </div>
+    </section>
+   
+{% endblock %}

@@ -1,0 +1,21 @@
+<!--Logo Slider-->
+<div class="section logo-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="logo-bar">
+            
+            {% for brand in brands %}
+                
+                <div class="logo-bar__item">
+                    <img src="{{media_url}}{{brand.image_name}}" alt="" title="" />
+                </div>
+            {% endfor %}
+                        
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Logo Slider-->

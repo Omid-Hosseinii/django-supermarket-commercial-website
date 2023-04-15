@@ -1,0 +1,40 @@
+{% extends 'main_user_panel.html' %}
+
+
+
+{% block title %}
+    صفحه ی اصلی
+{% endblock title %}
+    
+
+{% load render_partial %}
+
+{% block content_dashboard %}
+    
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-bottom:40px;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">ویرایش اطلاعات</h1>
+
+    </div>
+
+
+    <div class="container">
+        <form action="" method="post" class="mt-2 mb-2" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <img src="{{media_url}}{{image}}" alt="" style="width: 100px; height: 100px;">
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-info" value=" ">ثبت ویرایش</button>
+                <a href="" class="btn btn-danger">انصراف</a>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+</main>
+
+{% endblock content_dashboard %}
+    

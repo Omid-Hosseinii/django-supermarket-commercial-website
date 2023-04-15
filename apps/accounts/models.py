@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin,BaseUserManager
 from django.utils import timezone
+from utils import UploadFile
 #------------------------------------------------------------------------------
 
 class CustomUserManager(BaseUserManager):
@@ -61,3 +62,26 @@ class CustomUser(AbstractBaseUser,PermissionsMixin):
     @property
     def is_staff(self):
         return self.is_admin
+#------------------------------------------------------------------------------
+
+### defined model for customer 
+
+class Customer(models.Model):
+    user=models.OneToOneField(CustomUser,on_delete=models.CASCADE,primary_key=True)
+    phone_number=models.CharField(max_length=11,null=True,blank=True)
+    address=models.TextField(null=True,blank=True)
+    file_upload=UploadFile('images','customer')
+    image_name=models.ImageField(upload_to=file_upload.upload_to,verbose_name='تصویر پروفایل',null=True,blank=True)    
+
+    def __str__(self):
+        return str(self.user.id)
+
+    class Meta:
+        verbose_name ='مشتری'
+        verbose_name_plural ='مشتری ها'
+        db_table ='t_customer'
+
+
+
+
+

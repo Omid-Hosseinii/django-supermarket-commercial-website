@@ -1,0 +1,29 @@
+{% load humanize %}
+
+<div class="sidebar_widget filterBox filter-widget">
+    <div class="widget-title">
+        <h2>قیمت</h2>
+    </div>
+    <div class="filter__body" data-collapse-content>
+        <div class="filter__container">
+            <div class="filter-price" data-min="5000" data-max="150000" data-from="25000" data-to="110000">
+                <div class="filter-price__slider"></div>
+                <div class="filter-price__title">
+                    <span class="filter-price__min-value filter_price" id='cur_price'>{{res_aggre.max}} تومان</span>
+                    
+                    <br>
+                    
+                    <input type="range" name='price' min={{res_aggre.min}} max={{res_aggre.max}}
+                        value={{res_aggre.max}} oninput="showVal(this.value)" onchange="showVal(this.value)"
+                        style='width:200px;'><br>
+                    <span class="filter_price">{{res_aggre.min |intcomma }} تومان</span> 
+                    &nbsp;&nbsp;
+                    &nbsp;
+                    <span class="filter_price">{{res_aggre.max |intcomma }} تومان</span>
+
+                    <span class="filter-price__max-value"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

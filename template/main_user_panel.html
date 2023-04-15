@@ -1,0 +1,104 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>
+        پنل کاربری 
+    </title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard-rtl/">
+    <link href="{% static 'assets/dist/css/bootstrap.rtl.min.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/dashboard.rtl.css' %}" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    {% include 'partials/dashboard_header.html' %}
+
+
+    <div class="container-fluid">
+        <div class="row">
+
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-3">
+              <ul class="nav flex-column">
+
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'accounts:user_panel' %}">
+                    <span data-feather="inbox" class="align-text-bottom"></span>
+                    داشبورد
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'accounts:user_panel_update' %}">
+                    <span data-feather="users" class="align-text-bottom"></span>
+                    ویرایش پروفایل
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'accounts:user_panel_payment' %}">
+                    <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                    سابقه خرید
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'accounts:change_password_up' %}">
+                    <span data-feather="key" class="align-text-bottom"></span>
+                    تغیر رمزعبور
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'main:index' %}">
+                    <span data-feather="home" class="align-text-bottom"></span>
+                    خانه 
+                  </a>
+                </li>
+
+
+
+
+              </ul>
+      
+
+
+            </div>
+          </nav>
+
+
+          {% block content_dashboard %}
+
+          {% endblock content_dashboard %}
+      
+
+
+          
+        </div>
+    </div>
+
+
+
+
+    <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+        crossorigin="anonymous"></script>
+
+    <script src="{% static 'js/dashboard.js' %}"></script>
+
+</body>
+
+</html>

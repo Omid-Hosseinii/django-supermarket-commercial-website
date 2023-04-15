@@ -1,0 +1,45 @@
+{% load humanize %}
+
+    <div class="product-image product_related_image">
+        <!-- start product image -->
+        <a href="{{product.get_absolute_url}}" >
+            <!-- image -->
+            <img class="primary blur-up lazyload" data-src="{{media_url}}{{product.image_name}}" src="{{media_url}}{{product.image_name}}" alt="image" title="product">
+            <!-- End image -->
+            <!-- Hover image -->
+            <img class="hover blur-up lazyload" data-src="{{media_url}}myImages/card/card2_second_image.jpg" src="{{media_url}}myImages/card/card2_second_image.jpg" alt="image" title="product">
+            <!-- End hover image -->
+    
+        </a>
+        <!-- end product image -->
+    
+        <!-- Start product button -->
+        <form class="variants add">
+           
+            <button class="btn btn-addto-cart btn_related_product" type="button" tabindex="0" onclick="add_to_shop_cart({{product.id}},1)">
+                اضافه به سبد خرید
+            </button>
+        </form>
+
+        <!-- end product button -->
+    </div>
+    <!-- end product image -->
+    <!--start product details -->
+
+    <div class="product-details text-center" >
+        <!-- product name -->
+        <div class="product_name_related">
+            <a href="#">{{product.product_name}}</a>
+        </div>
+        <!-- End product name -->
+        <!-- product price -->
+        <div class="product-price">
+            
+            <span class="price">{{product.price | intcomma}} تومان</span>
+        </div>
+        <!-- End product price -->
+        
+
+    
+    </div>
+    

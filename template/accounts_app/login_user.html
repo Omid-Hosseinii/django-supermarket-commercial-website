@@ -15,12 +15,14 @@
     
 
         <!--Body Content-->
-        <div id="page-content" style="margin-top:128px;">
+        <div id="page-content" style="margin-top:120px; margin-bottom:50px;">
             <!--Page Title-->
-            <div class="page section-header text-center">
-                <div class="page-title">
-                    <div class="wrapper"><h1 class="page-width">ورود کاربر</h1></div>
-                  </div>
+            <div class="bredcrumbWrap">
+                <div class="container breadcrumbs">
+                    <a href="{% url 'main:index' %}" title="Back to the home page">خانه</a>
+                    <span aria-hidden="true">›</span>
+                    <span>ورود کاربر</span>
+                </div>
             </div>
             <!--End Page Title-->
             
@@ -33,14 +35,14 @@
                               <div class="row">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                     <div class="form-group">
-                                        <label for="CustomerEmail">شماره موبایل</label>
+                                        <label for="CustomerEmail" class="login_title">شماره موبایل</label>
                                         
                                         {{form.mobile_number}}
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                     <div class="form-group">
-                                        <label for="CustomerPassword">رمز عبور</label>
+                                        <label for="CustomerPassword" class="login_title">رمز عبور</label>
                                         {{form.password}}
                                                                 	
                                     </div>
@@ -48,10 +50,10 @@
                               </div>
                               <div class="row">
                                 <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
-                                    <input type="submit" class="btn mb-3" value="ورود">
-                                    <p class="mb-4">
+                                    <input type="submit" class="btn mb-3 login_btn" value="ورود">
+                                    <p class="mb-4 login_sub">
                                         <a href="{% url 'accounts:remmember_password' %}" id="RecoverPassword">رمز عبور خود را فراموش کرده ایید؟</a> &nbsp; | &nbsp;
-                                        <a href="register.html" id="customer_register_link">ساخت حساب کاربری</a>
+                                        <a href="{% url 'accounts:user_register' %}" id="customer_register_link">ساخت حساب کاربری</a>
                                     </p>
                                 </div>
                              </div>

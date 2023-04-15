@@ -1,0 +1,24 @@
+<!--Collection Box slider-->
+<div class="collection-box section main_collection_slider" id="popular_groups">
+    <div class="text-center group_header_style">
+        <h2>محبوب ترین گروه ها</h2>
+        
+    </div>
+    <div class="container-fluid">
+        <div class="collection-grid">
+            
+            {% for group in product_groups %}
+                <div class="collection-grid-item" >
+                    <a href="{% url 'products:products_ech_group' slug=group.slug %}" class="collection-grid-item__link">
+                        <img data-src="{{media_url}}{{group.image_name}}" src="{{media_url}}{{group.image_name}}" alt="Fashion" class="blur-up lazyload"/>
+                        <div class="collection-grid-item__title-wrapper">
+                            <h3 class="collection-grid-item__title btn btn--secondary title_group_style">{{group.group_title}}</h3>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}    
+        </div>
+           
+    </div>
+</div>
+<!--End Collection Box slider-->

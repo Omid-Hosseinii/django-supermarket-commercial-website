@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+
+
+
+{% block title %}
+    صفحه ی اصلی
+{% endblock title %}
+
+{% block content %}
+
+
+    <div id="page-content" style="margin-top:100px; margin-bottom:150px;">
+        <!--Page Title-->
+
+        <!--End Page Title-->
+        <div class="bredcrumbWrap">
+            <div class="container breadcrumbs">
+                <a href="{% url 'main:index' %}" title="Back to the home page">خانه</a>
+                <span aria-hidden="true">›</span>
+                <span>مقالات</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <!--Main Content-->
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
+
+                    <div class="blog--list-view blog--grid-load-more">
+
+                        
+                        {% for article in artciles %}
+                            <div class="article"> 
+                                <!-- Article Image --> 
+                                <a class="article_featured-image" href="{% url 'article:blog_detail' article.slug %}"><img class="blur-up lazyload" data-src="{{media_url}}{{article.main_image_name}}" src="{{media_url}}{{article.main_image_name}}" alt="It's all about how you wear"></a> 
+                                    <h2 class="h3 article_title_style">
+                                        <a href="{% url 'article:blog_detail' article.slug %}">{{article.title}}</a>
+                                    </h2>
+                                <ul class="publish-detail">                      
+                                    <li><i class="icon anm anm-clock-r"></i> <time datetime="2017-05-02">{{article.get_jalali_date}}</time></li>
+                                </ul>
+                                <div class="rte article_text_style"> 
+                                    <p>
+                                        {{article.short_text}}
+                                    </p>
+                                </div>
+                                <p><a href="{% url 'article:blog_detail' article.slug %}" class="btn btn-secondary btn--small article_btn">بیشتر بخوانید </a></p>
+                            </div>
+                        {% endfor %}
+
+
+
+
+
+                        <div class="loadmore-post">	
+                            <a href="#" class="btn loadMorepost">مقالات بیشتر</a>
+                           
+                        </div>
+                    </div>
+                </div>
+                <!--End Main Content-->
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock content %}

@@ -2,11 +2,16 @@ from django.shortcuts import render,redirect
 from django.views import View
 from . forms import (RegisterUserForm,VerifyRegisterForm,
                      LoginUserForm,RemmemberedPasswordForm,
-                     ChangePasswordForm,)
+                     ChangePasswordForm,UserPanelUpdateForm)
 import utils
-from .models import CustomUser
+from .models import CustomUser,Customer
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.decorators import login_required
+from apps.orderApp.models import Order
+from apps.paymentApp.models import Payment
 #----------------------------------------------------------------------------
 
 
@@ -187,3 +192,135 @@ class ChangePasswordView(View):
             return redirect('accounts:user_login')
         messages.error(request,'ایرادی در اطلاعات وارد شده وجود دارد','danger')
         return render(request,self.template_name,{'form':form})
+    
+    
+#================================================================================================================================================================================================
+                                                #### User panel section
+
+
+
+### LoginRequiredMixin : if user dont login , redirect to login page
+class UserPanelView(LoginRequiredMixin,View):
+    def get(self, request, *args, **kwargs):
+        try:
+            user=request.user
+            customer=Customer.objects.get(user_id=user)
+            user_info={
+                'name':user.name,
+                'family':user.family,
+                'mobile_number':user.mobile_number,
+                'email':user.email,
+                'address':customer.address,
+                'phone_number':customer.phone_number,
+                'image_name':customer.image_name,
+            }
+        except ObjectDoesNotExist:
+            user_info={
+                'name':user.name,
+                'family':user.family,
+                'mobile_number':user.mobile_number,
+                'email':user.email,
+            }
+        return render(request,'accounts_app/partials/user_panel_dashboard.html',{'user_info':user_info}) 
+    
+#-----------------------------------------------------------------------------------------------
+
+@login_required
+def user_panel_last_order(request):
+    last_orders=Order.objects.filter(customer_id=request.user.id).order_by('-register_date')[:5]    
+    return render(request,'accounts_app/partials/last_order.html',{'last_orders':last_orders}) 
+    
+    
+#-----------------------------------------------------------------------------------------------
+    
+class UserPanelUpdateView(LoginRequiredMixin,View):
+    def get(self, request, *args, **kwargs):
+        user=request.user
+        try:
+            customer=Customer.objects.get(user_id=user)
+            initial_form_info={
+                'mobile_number':user.mobile_number,
+                'name':user.name,
+                'family':user.family,
+                'email':user.email,
+                'phone_number':customer.phone_number,
+                'address':customer.address,}
+            form=UserPanelUpdateForm(initial=initial_form_info) 
+        except ObjectDoesNotExist:
+            initial_form_info={
+                'mobile_number':user.mobile_number,
+                'name':user.name,
+                'family':user.family,
+                'email':user.email,}
+            
+            form=UserPanelUpdateForm(initial=initial_form_info)
+        return render(request, 'accounts_app/partials/user_panel_update.html',{'form':form,'image':customer.image_name})        
+    
+    
+    def post(self, request, *args, **kwargs):
+        form=UserPanelUpdateForm(request.POST, request.FILES)
+        if request.POST or request.FILES:
+            if form.is_valid():
+                cd=form.cleaned_data
+                user=request.user
+                user.name=cd['name']
+                user.family=cd['family']
+                user.email=cd['email']
+                user.save()
+                try:
+                    customer=Customer.objects.get(user_id=request.user)
+                    customer.phone_number=cd['phone_number']
+                    customer.address=cd['address']
+                    if cd['image']:
+                        customer.image_name=cd['image']
+                    customer.save()
+                except ObjectDoesNotExist:
+                    Customer.objects.create(
+                        user=request.user,
+                        phone_number=cd['phone_number'],
+                        address=cd['address'],
+                        image_name=cd['image'])
+                messages.success(request,'اطلاعات شما با موفقیت ویرایش شد','success')
+                return redirect('accounts:user_panel')
+            
+            messages.error(request,'اطلاعات وارد شده صحیح نمی باشد','danger')
+            return render(request, 'accounts_app/partials/user_panel_update.html',{'form':form})
+        
+        messages.error(request,'اطلاعات وارد شده معتبر نمی باشد','danger')
+        return render(request, 'accounts_app/partials/user_panel_update.html',{'form':form})
+                            
+#-----------------------------------------------------------------------------------------------
+
+@login_required
+def peyment_history(request):
+    customer=Customer.objects.get(user_id=request.user)
+    payments=Payment.objects.filter(customer_id=customer).order_by('register_date')
+    return render(request, 'accounts_app/partials/user_panel_payment.html',{'payments':payments})
+        
+#-----------------------------------------------------------------------------------------------
+   
+class ChangePasswordUserPanelView(View):
+    template_name="accounts_app/partials/userpanel_changepassword.html"
+    def get(self, request, *args, **kwargs):
+        form=ChangePasswordForm()
+        return render(request,self.template_name,{'form':form})
+    
+    def post(self, request, *args, **kwargs):
+        form=ChangePasswordForm(request.POST or None)
+        if request.method == 'POST':
+            if form.is_valid():
+                data=form.cleaned_data
+                user=request.user
+                user.set_password(data['password1'])
+                user.active_code=utils.create_random_code(5)
+                user.save()
+                messages.success(request,'رمز عبور با موفقیت تغیر یافت','success')
+                next_url=request.GET.get('next_url')
+                if next_url:
+                    return redirect(next_url)
+                else:
+                    return redirect('accounts:user_panel')
+
+            return render(request,"accounts_app/userpanel_changepassword.html",{'form':form})   
+
+        return render(request,"accounts_app/userpanel_changepassword.html",{'form':form})    

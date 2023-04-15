@@ -39,16 +39,16 @@ class UserChangeForm(forms.ModelForm):
 class RegisterUserForm(forms.ModelForm):
     password1=forms.CharField(label='رمز عبور',
                               widget=forms.PasswordInput(attrs={'class': 'form-control',
-                                                                'placeholder':'رمز عبور'}))             
+                                                                }))             
     password2=forms.CharField(label='تکرار رمز عبور',
                               widget=forms.PasswordInput(attrs={'class': 'form-control',
-                                                                'placeholder':'تکرار رمز عبور'})) 
+                                                                })) 
     class Meta:
         model=CustomUser
         fields=['mobile_number']
         widgets={
             'mobile_number':forms.TextInput(attrs={'class': 'form-control',
-                                                   'placeholder':'تکرار رمز عبور'})}
+                                                   })}
     
     def clean_password2(self):
         pass1=self.cleaned_data['password1']                
@@ -71,14 +71,12 @@ class LoginUserForm(forms.Form):
                                   error_messages={'required':'این فیلد نمی تواند خالی باشد'},
                                   widget=forms.TextInput(attrs={
                                       'class':'form-control',
-                                      'placeholder':'شماره موبایل',
                                       'autofocus':""
                                   }))
     password=forms.CharField(label='رمز عبور',
                                   error_messages={'required':'این فیلد نمی تواند خالی باشد'},
                                   widget=forms.PasswordInput(attrs={
                                       'class':'form-control',
-                                      'placeholder':'رمز عبور',
                                   }))
 #------------------------------------------------------------------------------
     
@@ -113,7 +111,40 @@ class ChangePasswordForm(forms.Form):
             raise ValidationError('رمز عبور و تکرار آن باهم مغاییرت دارد')
         return pass2
     
+#------------------------------------------------------------------------------
 
+class UserPanelUpdateForm(forms.Form):
+    mobile_number = forms.CharField(
+        label='شماره موبایل',
+        error_messages={'required':'این فیلد نمی تواند خالی باشد'},
+        widget=forms.TextInput(attrs={'class':'form-control',
+                                      'readonly': 'readonly',}))
+    name = forms.CharField(
+        label='نام',
+        error_messages={'required':'این فیلد نمی تواند خالی باشد'},
+        widget=forms.TextInput(attrs={'class':'form-control',
+                                      'placeholder':'نام خود را وارد کنید',})) 
+    family = forms.CharField(
+        label='نام خانوادگی',
+        error_messages={'required':'این فیلد نمی تواند خالی باشد'},
+        widget=forms.TextInput(attrs={'class':'form-control',
+                                      'placeholder':'نام خانوادگی را وارد کنید',}))    
+    email = forms.CharField(
+        label='ایمیل',
+        error_messages={'required':'این فیلد نمی تواند خالی باشد'},
+        widget=forms.EmailInput(attrs={'class':'form-control',
+                                      'placeholder':'آدرس ایمیل را وارد کنید',}))
+    phone_number = forms.CharField(
+        label='تلفن',
+        error_messages={'required':'این فیلد نمی تواند خالی باشد'},
+        widget=forms.TextInput(attrs={'class':'form-control',
+                                      'placeholder':'شماره موبایل را وارد کنید',}))
+    address = forms.CharField(
+        label='آدرس',
+        error_messages={'required':'این فیلد نمی تواند خالی باشد'},
+        widget=forms.Textarea(attrs={'class':'form-control',
+                                      'placeholder':'آدرس را وارد کنید',}))
+    image = forms.ImageField(label="عکس پروفایل",required=False)
 
 
 
