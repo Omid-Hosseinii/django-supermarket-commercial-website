@@ -206,7 +206,7 @@ function update_shop_cart(){
 
 
 
-// scripts ajax for comments scoring and wishlist
+// scripts ajax for comments scoring 
 
 function showcreatecommentForm(productId,commentId,slug){
     $.ajax({
@@ -253,72 +253,7 @@ function addScore(score,productid){
 }
 
 
-function addFavorite(productId){
-    $.ajax({
-        type: "GET",
-        url: '/csw/add_favorite/',
-        data:{
-            productId:productId
-            
-        },
-        success:function(res){
-            alert(res);
-            document.getElementById('empty_heart_wishlist_'+productId).setAttribute(
-                "style", "color: rgb(255, 9, 9); font-size:18px;");
-        }
-    });
-}
-// End scripts ajax for comments scoring and wishlist
 
-status_of_compare_list();
+// End scripts ajax for comments scoring 
 
-function status_of_compare_list(){
-    
-    $.ajax({
-        type: "GET",
-        url:'/product/status_of_compare_list/',
-        
-        success:function(res){
-            if (Number(res) === 0 ){
-                $('#compare_list_box').hide();
-            } else {
-                $('#compare_list_box').show();
-                $('#status_compare_list').text(res);
-
-            }
-        }
-    });
-}
-
-function addToCompareList(productId,productMainGroup){
-    $.ajax({
-        type: "GET",
-        url: '/product/add_to_compare_list/',
-        data:{
-            productId:productId,
-            productMainGroup:productMainGroup,
-        },
-        success:function(res){
-            alert(res);
-            status_of_compare_list();
-            
-        }
-    });
-}
-
-function DeleteFromCompareList(productId){
-    $.ajax({
-        type: "GET",
-        url:"/product/delete_from_compare_list/",
-        data:{
-            productId:productId
-        },
-        success:function(res){
-            alert('کالای مورد نظر از لیست علایق حذف شد');
-            $("#compare_list").html(res);
-            status_of_compare_list();
-        }
-    });
-    
-}
 
